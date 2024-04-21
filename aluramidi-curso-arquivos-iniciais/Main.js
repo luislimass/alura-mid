@@ -1,16 +1,21 @@
-function tocaSomPom () {
-    document.querySelector('#som_tecla_pom').play();
+function tocaSom(idElementoAudio) {
+    document.querySelector(idElementoAudio).play(); // Removi as aspas em 'idElementoAudio' para que o parâmetro seja utilizado corretamente.
 }
-//constante
-const ListadeTeclas = document.querySelectorAll('.tecla');
-//variavel
+
+// Constante
+const listaDeTeclas = document.querySelectorAll('.tecla'); // Modifiquei o nome para seguir a convenção de camelCase.
+
+// Variável
 let contador = 0;
 
-//enquato
-while (contador<9) {
-    ListadeTeclas[0].onclick=tocaSomPom;
+// Enquanto
+while (contador < listaDeTeclas.length) {
 
-    contador= (contador + 1);
-    //dev tools
-    console. log(contador);
+    listaDeTeclas[contador].onclick = function() {
+        tocaSom('#som_tecla_pom');
+    };
+
+    contador = contador + 1; // Alternativa: contador++; ou contador += 1; Incremento corrigido.
+    // Dev tools
+    console.log(contador); // Espaço removido entre 'console.' e 'log'.
 }
